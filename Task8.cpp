@@ -1,57 +1,42 @@
 #include <iostream>
 using namespace std;
-void printpercentage(int number);
+void calculateprice(int age, int machineprice, int price);
 main()
 {
-    int number;
-    cout << "Enter a number :";
-    cin >> number;
-    printpercentage(number);
+    int age;
+    float machineprice;
+    int price;
+    cout << "Enter the age of lilly :";
+    cin >> age;
+    cout << "Enter the price of machine :";
+    cin >> machineprice;
+    cout << "Enter the price of each toy :";
+    cin >> price;
+    calculateprice(age , machineprice , price);
 }
-
-void printpercentage(int number)
+void calculateprice(int age, int machineprice, int price)
 {
-    int num1;
-    float range2 = 0;
-    float range1 = 0;
-    float range3 = 0;
-    float range4 = 0;
-    float range5 = 0;
-
-    for (int count = 1; count <= number; count++)
+    int sum = 0;
+    int toyprice = 0;
+    int totalprice;
+    for (int currentage = 2; currentage <= age; currentage = currentage + 2)
     {
-        cout << "Enter a number";
-        cin >> num1;
-
-        if (num1 >= 1 && num1 < 200)
-        {
-            range1 = range1 + 1;
-        }
-        else if (num1 >= 200 && num1 < 400)
-        {
-            range2 = range2 + 1;
-        }
-        else if (num1 >= 400 && num1 < 600)
-        {
-            range3 = range3 + 1;
-        }
-        else if (num1 >= 600 && num1 < 800)
-        {
-            range4 = range4 + 1;
-         }
-        else if (num1 >= 800 && num1 < 1000)
-        {
-            range5 = range5 + 1;
-        }
+        sum = sum + currentage * 5;
+        sum = sum - 1;
     }
-    float percentage1 = (range1/number)*100;
-    cout << percentage1 << '%' << endl;
-    float percentage2 = (range2/number)*100;
-    cout << percentage2 << '%' << endl;
-    float percentage3 = (range3/number)*100;
-    cout << percentage3 << '%' << endl;
-    float percentage4 = (range4/number)*100;
-    cout << percentage4 << '%' << endl;
-    float percentage5 = (range5/number)*100;
-    cout << percentage5 << '%' << endl;
+    for (int oddage = 1; oddage <= age; oddage = oddage + 2)
+    {
+        toyprice = toyprice + price;
+    }
+    totalprice = sum + toyprice;
+    float final1 = totalprice - machineprice;
+    float final2 = machineprice - totalprice;
+    if (machineprice <= totalprice)
+    {
+        cout << "Yes!" << final1;
+    }
+    else
+    {
+        cout << "No" << final2;
+    }
 }

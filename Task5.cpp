@@ -1,30 +1,23 @@
 #include <iostream>
 using namespace std;
-int frequency(int num1, int digit);
+int digitsum(int number);
 main()
 {
-    int num1;
-    int digit;
-    cout << "Enter a number :" << endl;
-    cin >> num1;
-    cout << "Enter the digit :";
-    cin >> digit;
-    int output = frequency(num1, digit);
+    int number;
+    cout << "enter the number";
+    cin >> number;
+    int output = digitsum(number);
     cout << output;
 }
-
-int frequency(int num1, int digit)
+int digitsum(int number)
 {
-    int rightMostDigit;
-    int numberOfDigits =0;
-    while (num1 != 0)
+    int value;
+    int sum = 0;
+    while (number != 0)
     {
-        rightMostDigit = num1 % 10;
-        if (digit == rightMostDigit)
-        {
-            numberOfDigits++;
-        }
-        num1 = num1 / 10;
+        value = number % 10;
+        sum = value + sum;
+        number = number/10;
     }
-    return numberOfDigits;
+    return sum;
 }

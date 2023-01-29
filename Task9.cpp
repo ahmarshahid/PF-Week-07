@@ -1,42 +1,44 @@
 #include <iostream>
 using namespace std;
-void calculateprice(int age, int machineprice, int price);
+void calculate(float money, int year);
 main()
+
 {
-    int age;
-    float machineprice;
-    int price;
-    cout << "Enter the age of lilly :";
-    cin >> age;
-    cout << "Enter the price of machine :";
-    cin >> machineprice;
-    cout << "Enter the price of each toy :";
-    cin >> price;
-    calculateprice(age , machineprice , price);
+    double money;
+    cout << "Enter the money :";
+    cin >> money;
+    int year;
+    cout << "Enter the year :";
+    cin >> year;
+    calculate(money, year);
 }
-void calculateprice(int age, int machineprice, int price)
+
+void calculate(float money, int year)
 {
-    int sum = 0;
-    int toyprice = 0;
-    int totalprice;
-    for (int currentage = 2; currentage <= age; currentage = currentage + 2)
+    float final = 0;
+    int age = 18;
+
+    for (int i = 1800; i <= year; i++)
     {
-        sum = sum + currentage * 5;
-        sum = sum - 1;
+
+        if (i % 2 == 0)
+        {
+            final = final + 12000;
+        }
+        else if (i % 2 != 0)
+        {
+            final = 12000 + (50 * age) + final;
+        }
+        age++;
     }
-    for (int oddage = 1; oddage <= age; oddage = oddage + 2)
+    float final1 = money - final;
+    float final2 = final - money;
+    if (money > final)
     {
-        toyprice = toyprice + price;
+        cout << "Yes! He will live a carefree life and will have " << final1 << " dollars left.";
     }
-    totalprice = sum + toyprice;
-    float final1 = totalprice - machineprice;
-    float final2 = machineprice - totalprice;
-    if (machineprice <= totalprice)
+    else if (money < final)
     {
-        cout << "Yes!" << final1;
-    }
-    else
-    {
-        cout << "No" << final2;
+        cout << "He will need " << final2 << " to survive.";
     }
 }

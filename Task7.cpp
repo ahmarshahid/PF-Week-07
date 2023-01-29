@@ -1,37 +1,57 @@
 #include <iostream>
 using namespace std;
-int calculateGCD(int number1, int number2);
-int calculateLCM(int number1, int number2, int output);
+void printpercentage(int number);
 main()
 {
-    int number1;
-    int number2;
-    cout << "Enter the number1 : ";
-    cin >> number1;
-    cout << "Enter the number2 : ";
-    cin >> number2;
-    int output;
-    output = calculateGCD(number1, number2);
-    cout << "The HCF is : " << output <<endl;
-    int lcm;
-    lcm = calculateLCM(number1, number2, output);
-    cout << "The LCM is :" << lcm;
+    int number;
+    cout << "Enter a number :";
+    cin >> number;
+    printpercentage(number);
 }
-int calculateGCD(int number1, int number2)
+
+void printpercentage(int number)
 {
-    int gcd;
-    for (int counter = 1; counter <= number1; counter++)
+    int num1;
+    float range2 = 0;
+    float range1 = 0;
+    float range3 = 0;
+    float range4 = 0;
+    float range5 = 0;
+
+    for (int count = 1; count <= number; count++)
     {
-        if (number1 % counter == 0 && number2 % counter == 0)
+        cout << "Enter a number";
+        cin >> num1;
+
+        if (num1 >= 1 && num1 < 200)
         {
-            gcd = counter;
+            range1 = range1 + 1;
+        }
+        else if (num1 >= 200 && num1 < 400)
+        {
+            range2 = range2 + 1;
+        }
+        else if (num1 >= 400 && num1 < 600)
+        {
+            range3 = range3 + 1;
+        }
+        else if (num1 >= 600 && num1 < 800)
+        {
+            range4 = range4 + 1;
+         }
+        else if (num1 >= 800 && num1 < 1000)
+        {
+            range5 = range5 + 1;
         }
     }
-    return gcd;
-}
-int calculateLCM(int number1, int number2, int output)
-{
-    int result;
-    result = (number1 * number2) / output;
-    return result;
+    float percentage1 = (range1/number)*100;
+    cout << percentage1 << '%' << endl;
+    float percentage2 = (range2/number)*100;
+    cout << percentage2 << '%' << endl;
+    float percentage3 = (range3/number)*100;
+    cout << percentage3 << '%' << endl;
+    float percentage4 = (range4/number)*100;
+    cout << percentage4 << '%' << endl;
+    float percentage5 = (range5/number)*100;
+    cout << percentage5 << '%' << endl;
 }
